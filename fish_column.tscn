@@ -1,0 +1,103 @@
+[gd_scene load_steps=12 format=3 uid="uid://rg23okumowo5"]
+
+[ext_resource type="Texture2D" uid="uid://0wk7pfg374vu" path="res://asset/column.png" id="1_k35wx"]
+[ext_resource type="Script" path="res://fish_column.gd" id="1_qrexr"]
+[ext_resource type="Texture2D" uid="uid://bvexwqsliefge" path="res://asset/water.png" id="2_kd5iu"]
+[ext_resource type="Texture2D" uid="uid://btwuu56wl8hrq" path="res://asset/bar.png" id="4_t35b1"]
+[ext_resource type="Texture2D" uid="uid://cxlyj635a8l76" path="res://asset/fish/fish02.png" id="5_pwuq7"]
+[ext_resource type="FontFile" uid="uid://b7xoe5ivvkpax" path="res://asset/joystix monospace.otf" id="6_fpbcn"]
+[ext_resource type="Texture2D" uid="uid://d0inf2to100u5" path="res://asset/stamina_over.png" id="7_ap6yg"]
+[ext_resource type="Texture2D" uid="uid://bu6dfjt85urtj" path="res://asset/gauge_under.png" id="8_mrmuw"]
+[ext_resource type="Texture2D" uid="uid://xqhcrf3hh0pb" path="res://asset/stamina_progress2.png" id="8_rxlu8"]
+[ext_resource type="Texture2D" uid="uid://by704iowk5trr" path="res://asset/gauge_over.png" id="9_msu0u"]
+[ext_resource type="Texture2D" uid="uid://ctabatmlubfxa" path="res://asset/gauge_progress.png" id="10_jm7ac"]
+
+[node name="FishColumn" type="Node2D"]
+script = ExtResource("1_qrexr")
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+offset_left = -2.0
+offset_top = -350.0
+offset_right = 2.0
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+visible = false
+offset_left = -53.0
+offset_top = -240.0
+offset_right = 49.0
+offset_bottom = 240.0
+texture = ExtResource("2_kd5iu")
+
+[node name="FishingBar" type="NinePatchRect" parent="."]
+offset_left = -44.0
+offset_top = -30.0
+offset_right = -22.0
+offset_bottom = -15.0
+scale = Vector2(4, 4)
+texture = ExtResource("4_t35b1")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="Fish" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("5_pwuq7")
+hframes = 2
+vframes = 3
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -166.0
+offset_top = -240.0
+offset_right = -51.0
+scale = Vector2(2, 2)
+texture = ExtResource("1_k35wx")
+
+[node name="Stamina" type="TextureProgressBar" parent="."]
+offset_left = -151.0
+offset_top = -87.0
+offset_right = -127.0
+offset_bottom = 22.0
+scale = Vector2(3, 3)
+step = 0.01
+value = 100.0
+fill_mode = 3
+texture_over = ExtResource("7_ap6yg")
+texture_progress = ExtResource("8_rxlu8")
+texture_progress_offset = Vector2(0, 7)
+
+[node name="Gauge" type="TextureProgressBar" parent="."]
+offset_left = 70.0
+offset_top = -240.0
+offset_right = 78.0
+offset_bottom = -137.0
+scale = Vector2(4, 4)
+step = 0.01
+value = 100.0
+fill_mode = 3
+texture_under = ExtResource("8_mrmuw")
+texture_over = ExtResource("9_msu0u")
+texture_progress = ExtResource("10_jm7ac")
+texture_progress_offset = Vector2(1, 1)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -232.0
+offset_top = -29.0
+offset_right = 228.0
+offset_bottom = 32.0
+color = Color(0, 0, 0, 0.627451)
+
+[node name="Countdown" type="Label" parent="."]
+offset_left = -60.0
+offset_top = -54.0
+offset_right = 60.0
+offset_bottom = 46.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 16
+theme_override_fonts/font = ExtResource("6_fpbcn")
+theme_override_font_sizes/font_size = 50
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
